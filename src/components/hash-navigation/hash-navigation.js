@@ -56,6 +56,7 @@ export default {
   params: {
     hashNavigation: {
       enabled: false,
+      setHash:true,
       replaceState: false,
       watchState: false,
     },
@@ -87,13 +88,13 @@ export default {
     },
     transitionEnd() {
       const swiper = this;
-      if (swiper.hashNavigation.initialized) {
+      if (swiper.hashNavigation.initialized && swiper.params.hashNavigation.setHash) {
         swiper.hashNavigation.setHash();
       }
     },
     slideChange() {
       const swiper = this;
-      if (swiper.hashNavigation.initialized && swiper.params.cssMode) {
+      if (swiper.hashNavigation.initialized && swiper.params.cssMode && swiper.params.hashNavigation.setHash) {
         swiper.hashNavigation.setHash();
       }
     },
