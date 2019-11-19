@@ -3,7 +3,7 @@ import $ from '../../utils/dom';
 import Utils from '../../utils/utils';
 
 const HashNavigation = {
-  onHashCange() {
+  onHashChange() {
     const swiper = this;
     const newHash = document.location.hash.replace('#', '');
     const activeSlideHash = swiper.slides.eq(swiper.activeIndex).attr('data-hash');
@@ -41,13 +41,13 @@ const HashNavigation = {
       }
     }
     if (swiper.params.hashNavigation.watchState) {
-      $(window).on('hashchange', swiper.hashNavigation.onHashCange);
+      $(window).on('hashchange', swiper.hashNavigation.onHashChange);
     }
   },
   destroy() {
     const swiper = this;
     if (swiper.params.hashNavigation.watchState) {
-      $(window).off('hashchange', swiper.hashNavigation.onHashCange);
+      $(window).off('hashchange', swiper.hashNavigation.onHashChange);
     }
   },
 };
@@ -68,7 +68,7 @@ export default {
         init: HashNavigation.init.bind(swiper),
         destroy: HashNavigation.destroy.bind(swiper),
         setHash: HashNavigation.setHash.bind(swiper),
-        onHashCange: HashNavigation.onHashCange.bind(swiper),
+        onHashChange: HashNavigation.onHashChange.bind(swiper),
       },
     });
   },
